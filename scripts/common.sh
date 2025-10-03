@@ -79,6 +79,6 @@ sudo apt-get install -y jq
 local_ip="$(ip --json addr show eth1 | jq -r '.[0].addr_info[] | select(.family == "inet") | .local')"
 
 # Write the local IP address to the kubelet default configuration file
-cat > /etc/default/kubelet << EOF
+cat > sudo /etc/default/kubelet << EOF
 KUBELET_EXTRA_ARGS=--node-ip=$local_ip
 EOF
